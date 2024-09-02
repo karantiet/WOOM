@@ -2,9 +2,18 @@ import MeetingTypeList from '@/components/MeetingTypeList';
 
 const Home = () => {
   const now = new Date();
+  const utcTime = now.toISOString(); // ISO string is always in UTC
 
-  const time = now.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
- const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+  const time = new Date(utcTime).toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Asia/Kolkata', // Set the timezone to UTC for consistency
+  });
+  
+  const date = new Intl.DateTimeFormat('en-US', {
+    dateStyle: 'full',
+    timeZone: 'Asia/Kolkata', // Set the timezone to UTC for consistency
+  }).format(new Date(utcTime));
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
