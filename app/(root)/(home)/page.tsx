@@ -24,7 +24,7 @@ const Home = () => {
       <MeetingTypeList />
       <footer className='mt-auto flex justify-center py-4'>
         <p className='text-center text-white'>
-          Coded with ❤️ by KC
+          Coded with ❤️ by Karan
         </p>
       </footer>
     </section>
